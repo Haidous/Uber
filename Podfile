@@ -11,6 +11,7 @@ target 'waselni' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
+	pod 'IHKeyboardAvoiding'
 
   target 'waselniTests' do
     inherit! :search_paths

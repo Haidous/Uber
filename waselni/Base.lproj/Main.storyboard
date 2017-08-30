@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="R7S-b1-4L6">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="waselni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,386 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="psW-ma-GuM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7gR-9y-cxf" appends="YES" id="I2K-8G-zrJ"/>
+                                </connections>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waselniLogo" translatesAutoresizingMaskIntoConstraints="NO" id="1Hr-bp-Ubm">
+                                <rect key="frame" x="24" y="65" width="326" height="142"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="M54-iZ-60t"/>
+                                    <constraint firstAttribute="height" constant="142" id="V42-Li-haC"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Johndoe@example.com" textAlignment="natural" minimumFontSize="17" background="loginEmailTextField" translatesAutoresizingMaskIntoConstraints="NO" id="Myf-hu-WYa" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                <rect key="frame" x="25" y="246" width="326" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="326" id="6KO-AP-km3"/>
+                                    <constraint firstAttribute="height" constant="56" id="sdR-0O-jRy"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•••••••" textAlignment="natural" minimumFontSize="17" background="loginPasswordTextField" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-J4-pgN" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                <rect key="frame" x="25" y="317" width="326" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="4Xa-be-Z4I"/>
+                                    <constraint firstAttribute="width" constant="326" id="pe5-hk-jh5"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-3v-cQp">
+                                <rect key="frame" x="193" y="383" width="156" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="FxD-fa-KGq"/>
+                                    <constraint firstAttribute="width" constant="156" id="lup-P9-8ea"/>
+                                </constraints>
+                                <state key="normal" image="forgotPasswordButton"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mO6-mc-Au1">
+                                <rect key="frame" x="30" y="460" width="315" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="28M-8D-FMV"/>
+                                    <constraint firstAttribute="width" constant="315" id="Pli-Oe-s9b"/>
+                                </constraints>
+                                <state key="normal" image="loginButton"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R18-Py-lCo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oUf-xm-QD9">
+                                <rect key="frame" x="30" y="528" width="315" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="315" id="Pc0-Zb-BVS"/>
+                                    <constraint firstAttribute="height" constant="60" id="dJN-dX-afz"/>
+                                </constraints>
+                                <state key="normal" image="loginSignupButton"/>
+                                <connections>
+                                    <segue destination="Lhl-MJ-ium" kind="show" identifier="toSignUp" id="Wmj-96-IGA"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="psW-ma-GuM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="1aa-UC-FlY"/>
+                            <constraint firstItem="Myf-hu-WYa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3QF-tt-4VQ"/>
+                            <constraint firstItem="fZW-J4-pgN" firstAttribute="top" secondItem="Myf-hu-WYa" secondAttribute="bottom" constant="15" id="4Xr-ec-IHM"/>
+                            <constraint firstAttribute="trailing" secondItem="psW-ma-GuM" secondAttribute="trailing" id="5WE-u9-Njo"/>
+                            <constraint firstItem="oUf-xm-QD9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7xT-ye-KMd"/>
+                            <constraint firstItem="1Hr-bp-Ubm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="65" id="9ja-D0-9Mw"/>
+                            <constraint firstItem="Myf-hu-WYa" firstAttribute="top" secondItem="1Hr-bp-Ubm" secondAttribute="bottom" constant="39" id="BXL-QC-JSg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gOk-3v-cQp" secondAttribute="trailing" constant="10" id="DPb-ab-md2"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="psW-ma-GuM" secondAttribute="bottom" id="JYn-Gz-xUo"/>
+                            <constraint firstItem="psW-ma-GuM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Pp2-Ek-yDO"/>
+                            <constraint firstItem="gOk-3v-cQp" firstAttribute="top" secondItem="fZW-J4-pgN" secondAttribute="bottom" constant="10" id="UZU-Gf-qmW"/>
+                            <constraint firstItem="oUf-xm-QD9" firstAttribute="top" secondItem="mO6-mc-Au1" secondAttribute="bottom" constant="8" id="aUn-6R-2U9"/>
+                            <constraint firstItem="mO6-mc-Au1" firstAttribute="top" secondItem="gOk-3v-cQp" secondAttribute="bottom" constant="50" id="cMF-hP-Xt8"/>
+                            <constraint firstItem="1Hr-bp-Ubm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fqH-KZ-VoQ"/>
+                            <constraint firstItem="mO6-mc-Au1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nHU-Vk-fso"/>
+                            <constraint firstItem="fZW-J4-pgN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tyC-CF-Vdc"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="Myf-hu-WYa" id="aMA-CT-CFD"/>
+                        <outlet property="passwordTextField" destination="fZW-J4-pgN" id="dl1-Az-vR0"/>
+                        <segue destination="R7S-b1-4L6" kind="show" identifier="toMainView1" id="3ce-87-SkT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7gR-9y-cxf">
+                    <connections>
+                        <action selector="viewTapped:" destination="BYZ-38-t0r" id="PX1-Cn-kxp"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-1658" y="36"/>
+        </scene>
+        <!--Sign Up View Controller-->
+        <scene sceneID="dRx-e1-j2l">
+            <objects>
+                <viewController id="Lhl-MJ-ium" customClass="SignUpViewController" customModule="waselni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x1I-jy-IOx"/>
+                        <viewControllerLayoutGuide type="bottom" id="YE5-yg-8EL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I8M-3m-CMh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="zzZ-Jw-4NQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signUpBackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="xpZ-0v-JHJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="PYL-8E-95e" appends="YES" id="4Mq-CI-QaW"/>
+                                        </connections>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="76 69 69 52" textAlignment="natural" minimumFontSize="17" background="signUpPhoneTextField" translatesAutoresizingMaskIntoConstraints="NO" id="P2m-6O-H2X" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="430" width="340" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="340" id="FVV-7j-lIc"/>
+                                            <constraint firstAttribute="height" constant="62" id="Rvy-kc-tuB"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="••••••••" textAlignment="natural" minimumFontSize="17" background="signUpPasswordTextField" translatesAutoresizingMaskIntoConstraints="NO" id="hWs-Je-gz3" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="23" y="360" width="340" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="340" id="0oZ-qy-aHk"/>
+                                            <constraint firstAttribute="height" constant="62" id="NdP-A5-MDl"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" background="signUpFirstNameTextField" translatesAutoresizingMaskIntoConstraints="NO" id="Dlr-gh-hvr" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="220" width="165" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="165" id="Cth-oD-x8E"/>
+                                            <constraint firstAttribute="height" constant="62" id="ttx-SN-Q8Y"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" background="signUpLastNameTextField" translatesAutoresizingMaskIntoConstraints="NO" id="hKG-M0-5zr" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="190" y="220" width="165" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="165" id="Zln-Yn-j0F"/>
+                                            <constraint firstAttribute="height" constant="62" id="n7a-Qw-gj2"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePictureButton" translatesAutoresizingMaskIntoConstraints="NO" id="oq3-3a-CmP" customClass="FancyImageView" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="137" y="65" width="100" height="100"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="Ny5-Mf-nEb"/>
+                                            <constraint firstAttribute="width" constant="100" id="gf1-yU-kd4"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="E7m-V9-HSI" appends="YES" id="Zbn-Id-AuM"/>
+                                        </connections>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYt-Zv-uwT">
+                                        <rect key="frame" x="30" y="542" width="315" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="315" id="mH1-HX-wFX"/>
+                                            <constraint firstAttribute="height" constant="60" id="muX-da-h3A"/>
+                                        </constraints>
+                                        <state key="normal" image="signUpCreateAccountButton"/>
+                                        <connections>
+                                            <action selector="createAccountClicked:" destination="Lhl-MJ-ium" eventType="touchUpInside" id="oLm-S4-DnP"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Johndoe@example.com" textAlignment="natural" minimumFontSize="17" background="signUpEmailTextField" translatesAutoresizingMaskIntoConstraints="NO" id="s2G-LX-UBO" customClass="FancyTextField" customModule="waselni" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="290" width="330" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="328-7x-b47"/>
+                                            <constraint firstAttribute="width" constant="330" id="s09-11-J5o"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="paddingLeft">
+                                                <real key="value" value="50"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dlr-gh-hvr" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="25" id="32o-yo-goR"/>
+                                    <constraint firstItem="HYt-Zv-uwT" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="30" id="3rW-fX-Nkg"/>
+                                    <constraint firstItem="oq3-3a-CmP" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="137" id="3yZ-0R-SNv"/>
+                                    <constraint firstAttribute="trailing" secondItem="s2G-LX-UBO" secondAttribute="trailing" constant="21" id="4Bj-24-mlI"/>
+                                    <constraint firstAttribute="trailing" secondItem="hWs-Je-gz3" secondAttribute="trailing" constant="12" id="C5i-vd-bvp"/>
+                                    <constraint firstItem="s2G-LX-UBO" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="24" id="EHQ-Ct-wBr"/>
+                                    <constraint firstAttribute="trailing" secondItem="xpZ-0v-JHJ" secondAttribute="trailing" id="GRi-4B-RDk"/>
+                                    <constraint firstItem="Dlr-gh-hvr" firstAttribute="top" secondItem="oq3-3a-CmP" secondAttribute="bottom" constant="55" id="JB6-br-tnQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="P2m-6O-H2X" secondAttribute="trailing" constant="12" id="JRy-fo-tvI"/>
+                                    <constraint firstItem="hKG-M0-5zr" firstAttribute="top" secondItem="oq3-3a-CmP" secondAttribute="bottom" constant="55" id="KQ0-Jg-Q1Q"/>
+                                    <constraint firstItem="HYt-Zv-uwT" firstAttribute="top" secondItem="P2m-6O-H2X" secondAttribute="bottom" constant="50" id="Kcp-NK-UZJ"/>
+                                    <constraint firstItem="hWs-Je-gz3" firstAttribute="top" secondItem="s2G-LX-UBO" secondAttribute="bottom" constant="8" id="LSV-KD-jan"/>
+                                    <constraint firstAttribute="trailing" secondItem="HYt-Zv-uwT" secondAttribute="trailing" constant="30" id="QOL-rA-eDi"/>
+                                    <constraint firstItem="oq3-3a-CmP" firstAttribute="top" secondItem="zzZ-Jw-4NQ" secondAttribute="top" constant="65" id="R9P-ci-0cK"/>
+                                    <constraint firstItem="xpZ-0v-JHJ" firstAttribute="top" secondItem="zzZ-Jw-4NQ" secondAttribute="top" id="RQD-pn-ImQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="xpZ-0v-JHJ" secondAttribute="bottom" id="VCG-JT-NYO"/>
+                                    <constraint firstItem="P2m-6O-H2X" firstAttribute="top" secondItem="hWs-Je-gz3" secondAttribute="bottom" constant="8" id="Vm1-se-IiD"/>
+                                    <constraint firstAttribute="trailing" secondItem="oq3-3a-CmP" secondAttribute="trailing" constant="138" id="bcZ-tI-qnE"/>
+                                    <constraint firstItem="P2m-6O-H2X" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="23" id="dYu-no-21B"/>
+                                    <constraint firstAttribute="trailing" secondItem="hKG-M0-5zr" secondAttribute="trailing" constant="20" id="hZC-ZJ-z17"/>
+                                    <constraint firstItem="hWs-Je-gz3" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" constant="23" id="nEu-AS-p9Y"/>
+                                    <constraint firstItem="xpZ-0v-JHJ" firstAttribute="leading" secondItem="zzZ-Jw-4NQ" secondAttribute="leading" id="qNO-zX-1OZ"/>
+                                    <constraint firstItem="s2G-LX-UBO" firstAttribute="top" secondItem="hKG-M0-5zr" secondAttribute="bottom" constant="8" id="vKW-qk-gmy"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YE5-yg-8EL" firstAttribute="top" secondItem="zzZ-Jw-4NQ" secondAttribute="bottom" id="1Pf-HP-ZUy"/>
+                            <constraint firstItem="zzZ-Jw-4NQ" firstAttribute="leading" secondItem="I8M-3m-CMh" secondAttribute="leading" id="HdE-NM-2VE"/>
+                            <constraint firstItem="zzZ-Jw-4NQ" firstAttribute="top" secondItem="x1I-jy-IOx" secondAttribute="bottom" id="bCz-mU-OeF"/>
+                            <constraint firstAttribute="trailing" secondItem="zzZ-Jw-4NQ" secondAttribute="trailing" id="s7n-ZN-JER"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="s2G-LX-UBO" id="rLM-gG-Wf4"/>
+                        <outlet property="firstNameTextField" destination="Dlr-gh-hvr" id="pD0-6m-Th9"/>
+                        <outlet property="lastNameTextField" destination="hKG-M0-5zr" id="zoo-BY-6zx"/>
+                        <outlet property="passwordTextField" destination="hWs-Je-gz3" id="vBb-2G-8z6"/>
+                        <outlet property="phoneTextField" destination="P2m-6O-H2X" id="JVJ-gd-Ckg"/>
+                        <outlet property="profilePictureImageView" destination="oq3-3a-CmP" id="qh6-19-tyw"/>
+                        <outlet property="scrollView" destination="zzZ-Jw-4NQ" id="Ra0-N9-YOy"/>
+                        <segue destination="R7S-b1-4L6" kind="show" identifier="toMainView2" id="IvY-5b-KCk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ReP-Ky-X5P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PYL-8E-95e">
+                    <connections>
+                        <action selector="viewTapped:" destination="Lhl-MJ-ium" id="2bB-Tb-rLg"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="E7m-V9-HSI">
+                    <connections>
+                        <action selector="editProfilePictureTapped:" destination="Lhl-MJ-ium" id="nyZ-Z4-YUT"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-26" y="36"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="b5D-zT-FUD">
+            <objects>
+                <viewController id="R7S-b1-4L6" customClass="MapViewController" customModule="waselni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OZI-Vh-8M8"/>
+                        <viewControllerLayoutGuide type="bottom" id="YKc-jf-1QV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XBq-D4-oVG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ceb-ia-IOC">
+                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutClicked:" destination="R7S-b1-4L6" eventType="touchUpInside" id="Qhc-cN-7Cp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ceb-ia-IOC" secondAttribute="trailing" constant="149" id="hBK-Vx-YuA"/>
+                            <constraint firstItem="Ceb-ia-IOC" firstAttribute="top" secondItem="OZI-Vh-8M8" secondAttribute="bottom" constant="318" id="iZI-4I-qhw"/>
+                            <constraint firstItem="YKc-jf-1QV" firstAttribute="top" secondItem="Ceb-ia-IOC" secondAttribute="bottom" constant="319" id="mFB-eU-ijz"/>
+                            <constraint firstItem="Ceb-ia-IOC" firstAttribute="leading" secondItem="XBq-D4-oVG" secondAttribute="leadingMargin" constant="148" id="wIb-sd-tth"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="rsU-em-FCN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wfT-fi-6Dv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-886" y="37"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="forgotPasswordButton" width="156" height="27"/>
+        <image name="loginBackgroundImage" width="375" height="667"/>
+        <image name="loginButton" width="315" height="60"/>
+        <image name="loginEmailTextField" width="326" height="56"/>
+        <image name="loginPasswordTextField" width="326" height="56"/>
+        <image name="loginSignupButton" width="315" height="60"/>
+        <image name="profilePictureButton" width="91" height="91"/>
+        <image name="signUpBackgroundImage" width="375" height="667"/>
+        <image name="signUpCreateAccountButton" width="315" height="60"/>
+        <image name="signUpEmailTextField" width="326" height="65"/>
+        <image name="signUpFirstNameTextField" width="165" height="62"/>
+        <image name="signUpLastNameTextField" width="166" height="62"/>
+        <image name="signUpPasswordTextField" width="335" height="65"/>
+        <image name="signUpPhoneTextField" width="335" height="65"/>
+        <image name="waselniLogo" width="351" height="164"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IvY-5b-KCk"/>
+    </inferredMetricsTieBreakers>
 </document>

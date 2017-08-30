@@ -11,12 +11,19 @@
 		2CA47C51A55EDF0735F61C1F /* Pods_waselni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C21EADBD615A0D21D6D26 /* Pods_waselni.framework */; };
 		8EE6312E27FE38FDFB6154F4 /* Pods_waselniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF0C2993B8FC8A62AB29AC /* Pods_waselniUITests.framework */; };
 		B59D60031F56FA7E003A536C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60021F56FA7E003A536C /* AppDelegate.swift */; };
-		B59D60051F56FA7E003A536C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60041F56FA7E003A536C /* ViewController.swift */; };
+		B59D60051F56FA7E003A536C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60041F56FA7E003A536C /* LoginViewController.swift */; };
 		B59D60081F56FA7E003A536C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59D60061F56FA7E003A536C /* Main.storyboard */; };
 		B59D600A1F56FA7E003A536C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B59D60091F56FA7E003A536C /* Assets.xcassets */; };
 		B59D600D1F56FA7E003A536C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59D600B1F56FA7E003A536C /* LaunchScreen.storyboard */; };
 		B59D60181F56FA7E003A536C /* waselniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60171F56FA7E003A536C /* waselniTests.swift */; };
 		B59D60231F56FA7E003A536C /* waselniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60221F56FA7E003A536C /* waselniUITests.swift */; };
+		B5D7110F1F57051200544ACA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7110E1F57051200544ACA /* AuthService.swift */; };
+		B5D711111F5706A400544ACA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D711101F5706A400544ACA /* DataService.swift */; };
+		B5D711131F57078D00544ACA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5D711121F57078D00544ACA /* GoogleService-Info.plist */; };
+		B5D711151F570B0A00544ACA /* FancyTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D711141F570B0A00544ACA /* FancyTextfield.swift */; };
+		B5DF91451F5725B000B8783A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF91441F5725B000B8783A /* SignUpViewController.swift */; };
+		B5DF91471F57488300B8783A /* FancyImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF91461F57488300B8783A /* FancyImageView.swift */; };
+		B5DF91491F575B7D00B8783A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DF91481F575B7D00B8783A /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +53,7 @@
 		ACFF0C2993B8FC8A62AB29AC /* Pods_waselniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_waselniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D5FFF1F56FA7E003A536C /* waselni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waselni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D60021F56FA7E003A536C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B59D60041F56FA7E003A536C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B59D60041F56FA7E003A536C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B59D60071F56FA7E003A536C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B59D60091F56FA7E003A536C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B59D600C1F56FA7E003A536C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +64,13 @@
 		B59D601E1F56FA7E003A536C /* waselniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waselniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D60221F56FA7E003A536C /* waselniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waselniUITests.swift; sourceTree = "<group>"; };
 		B59D60241F56FA7E003A536C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5D7110E1F57051200544ACA /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		B5D711101F5706A400544ACA /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		B5D711121F57078D00544ACA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5D711141F570B0A00544ACA /* FancyTextfield.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyTextfield.swift; sourceTree = "<group>"; };
+		B5DF91441F5725B000B8783A /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B5DF91461F57488300B8783A /* FancyImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyImageView.swift; sourceTree = "<group>"; };
+		B5DF91481F575B7D00B8783A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		C470A12B61BF3BFC3B45FDE3 /* Pods-waselniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waselniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-waselniTests/Pods-waselniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA7DD8CA6855F049F89907FF /* Pods_waselniTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_waselniTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -128,11 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				B59D60021F56FA7E003A536C /* AppDelegate.swift */,
-				B59D60041F56FA7E003A536C /* ViewController.swift */,
+				B5D711091F57045D00544ACA /* Model */,
+				B5D7110A1F57046B00544ACA /* View */,
+				B5D7110B1F57047200544ACA /* Controller */,
 				B59D60061F56FA7E003A536C /* Main.storyboard */,
-				B59D60091F56FA7E003A536C /* Assets.xcassets */,
 				B59D600B1F56FA7E003A536C /* LaunchScreen.storyboard */,
-				B59D600E1F56FA7E003A536C /* Info.plist */,
+				B5D7110C1F57048100544ACA /* Services */,
+				B5D7110D1F57048900544ACA /* Resources */,
 			);
 			path = waselni;
 			sourceTree = "<group>";
@@ -153,6 +169,51 @@
 				B59D60241F56FA7E003A536C /* Info.plist */,
 			);
 			path = waselniUITests;
+			sourceTree = "<group>";
+		};
+		B5D711091F57045D00544ACA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B5D7110A1F57046B00544ACA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5D711141F570B0A00544ACA /* FancyTextfield.swift */,
+				B5DF91461F57488300B8783A /* FancyImageView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B5D7110B1F57047200544ACA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B59D60041F56FA7E003A536C /* LoginViewController.swift */,
+				B5DF91441F5725B000B8783A /* SignUpViewController.swift */,
+				B5DF91481F575B7D00B8783A /* MapViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		B5D7110C1F57048100544ACA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B5D7110E1F57051200544ACA /* AuthService.swift */,
+				B5D711101F5706A400544ACA /* DataService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		B5D7110D1F57048900544ACA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B5D711121F57078D00544ACA /* GoogleService-Info.plist */,
+				B59D60091F56FA7E003A536C /* Assets.xcassets */,
+				B59D600E1F56FA7E003A536C /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		CBA0F181920C1C880CD7E41F /* Frameworks */ = {
@@ -287,6 +348,7 @@
 				B59D600D1F56FA7E003A536C /* LaunchScreen.storyboard in Resources */,
 				B59D600A1F56FA7E003A536C /* Assets.xcassets in Resources */,
 				B59D60081F56FA7E003A536C /* Main.storyboard in Resources */,
+				B5D711131F57078D00544ACA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +411,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-waselni/Pods-waselni-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -356,6 +419,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -467,8 +531,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B59D60051F56FA7E003A536C /* ViewController.swift in Sources */,
+				B5DF91471F57488300B8783A /* FancyImageView.swift in Sources */,
+				B5DF91451F5725B000B8783A /* SignUpViewController.swift in Sources */,
+				B5D7110F1F57051200544ACA /* AuthService.swift in Sources */,
+				B5D711151F570B0A00544ACA /* FancyTextfield.swift in Sources */,
+				B59D60051F56FA7E003A536C /* LoginViewController.swift in Sources */,
 				B59D60031F56FA7E003A536C /* AppDelegate.swift in Sources */,
+				B5D711111F5706A400544ACA /* DataService.swift in Sources */,
+				B5DF91491F575B7D00B8783A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +693,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z843JNTLAS;
 				INFOPLIST_FILE = waselni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.waselni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -637,6 +708,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Z843JNTLAS;
 				INFOPLIST_FILE = waselni/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.waselni;
 				PRODUCT_NAME = "$(TARGET_NAME)";
