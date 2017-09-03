@@ -11,8 +11,10 @@ target 'waselni' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Storage'
-	pod 'IHKeyboardAvoiding'
-
+	pod 'GoogleMaps'
+  	pod 'GooglePlaces'
+	pod 'GooglePlacePicker'
+    
   target 'waselniTests' do
     inherit! :search_paths
     # Pods for testing

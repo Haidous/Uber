@@ -3,12 +3,13 @@
 //  waselni
 //
 //  Created by Moussa on 8/30/17.
-//  Copyright © 2017 Moussa. All rights reserved.
+//  Copyright © 2017 Moussa. All rights reserved. AIzaSyBvUnAEzdC02UqcQPKVUQjO2gG8-3dwfXo
 //
 
 import UIKit
 import Firebase
-
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
+        GMSServices.provideAPIKey("AIzaSyBvUnAEzdC02UqcQPKVUQjO2gG8-3dwfXo")
+        GMSPlacesClient.provideAPIKey("AIzaSyBvUnAEzdC02UqcQPKVUQjO2gG8-3dwfXo")
         
         UIApplication.shared.isStatusBarHidden = true
         

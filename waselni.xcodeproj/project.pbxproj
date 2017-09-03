@@ -10,6 +10,9 @@
 		1DEF677B85EDBDC2256098B8 /* Pods_waselniTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7DD8CA6855F049F89907FF /* Pods_waselniTests.framework */; };
 		2CA47C51A55EDF0735F61C1F /* Pods_waselni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336C21EADBD615A0D21D6D26 /* Pods_waselni.framework */; };
 		8EE6312E27FE38FDFB6154F4 /* Pods_waselniUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFF0C2993B8FC8A62AB29AC /* Pods_waselniUITests.framework */; };
+		B5394FDD1F583FAE0044B559 /* SelectDestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5394FDC1F583FAE0044B559 /* SelectDestinationViewController.swift */; };
+		B5394FDF1F584C960044B559 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5394FDE1F584C960044B559 /* LocationCell.swift */; };
+		B5394FE11F58712E0044B559 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5394FE01F58712E0044B559 /* Location.swift */; };
 		B59D60031F56FA7E003A536C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60021F56FA7E003A536C /* AppDelegate.swift */; };
 		B59D60051F56FA7E003A536C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60041F56FA7E003A536C /* LoginViewController.swift */; };
 		B59D60081F56FA7E003A536C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59D60061F56FA7E003A536C /* Main.storyboard */; };
@@ -17,6 +20,7 @@
 		B59D600D1F56FA7E003A536C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B59D600B1F56FA7E003A536C /* LaunchScreen.storyboard */; };
 		B59D60181F56FA7E003A536C /* waselniTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60171F56FA7E003A536C /* waselniTests.swift */; };
 		B59D60231F56FA7E003A536C /* waselniUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59D60221F56FA7E003A536C /* waselniUITests.swift */; };
+		B5C0D4B21F5778150032D994 /* BikeMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C0D4B11F5778150032D994 /* BikeMarker.swift */; };
 		B5D7110F1F57051200544ACA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7110E1F57051200544ACA /* AuthService.swift */; };
 		B5D711111F5706A400544ACA /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D711101F5706A400544ACA /* DataService.swift */; };
 		B5D711131F57078D00544ACA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5D711121F57078D00544ACA /* GoogleService-Info.plist */; };
@@ -51,6 +55,9 @@
 		68E3F0B2EE79F39DD6A41042 /* Pods-waselni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waselni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-waselni/Pods-waselni.debug.xcconfig"; sourceTree = "<group>"; };
 		8008F07245467242F1E47E00 /* Pods-waselniTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waselniTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-waselniTests/Pods-waselniTests.release.xcconfig"; sourceTree = "<group>"; };
 		ACFF0C2993B8FC8A62AB29AC /* Pods_waselniUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_waselniUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5394FDC1F583FAE0044B559 /* SelectDestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectDestinationViewController.swift; sourceTree = "<group>"; };
+		B5394FDE1F584C960044B559 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		B5394FE01F58712E0044B559 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B59D5FFF1F56FA7E003A536C /* waselni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waselni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D60021F56FA7E003A536C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B59D60041F56FA7E003A536C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +71,7 @@
 		B59D601E1F56FA7E003A536C /* waselniUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waselniUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59D60221F56FA7E003A536C /* waselniUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = waselniUITests.swift; sourceTree = "<group>"; };
 		B59D60241F56FA7E003A536C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5C0D4B11F5778150032D994 /* BikeMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BikeMarker.swift; sourceTree = "<group>"; };
 		B5D7110E1F57051200544ACA /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		B5D711101F5706A400544ACA /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		B5D711121F57078D00544ACA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 		B5D711091F57045D00544ACA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B5394FE01F58712E0044B559 /* Location.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -183,6 +192,8 @@
 			children = (
 				B5D711141F570B0A00544ACA /* FancyTextfield.swift */,
 				B5DF91461F57488300B8783A /* FancyImageView.swift */,
+				B5C0D4B11F5778150032D994 /* BikeMarker.swift */,
+				B5394FDE1F584C960044B559 /* LocationCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -193,6 +204,7 @@
 				B59D60041F56FA7E003A536C /* LoginViewController.swift */,
 				B5DF91441F5725B000B8783A /* SignUpViewController.swift */,
 				B5DF91481F575B7D00B8783A /* MapViewController.swift */,
+				B5394FDC1F583FAE0044B559 /* SelectDestinationViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -393,9 +405,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-waselni/Pods-waselni-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -411,7 +428,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-waselni/Pods-waselni-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -419,7 +435,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -535,9 +550,13 @@
 				B5DF91451F5725B000B8783A /* SignUpViewController.swift in Sources */,
 				B5D7110F1F57051200544ACA /* AuthService.swift in Sources */,
 				B5D711151F570B0A00544ACA /* FancyTextfield.swift in Sources */,
+				B5C0D4B21F5778150032D994 /* BikeMarker.swift in Sources */,
 				B59D60051F56FA7E003A536C /* LoginViewController.swift in Sources */,
+				B5394FDF1F584C960044B559 /* LocationCell.swift in Sources */,
 				B59D60031F56FA7E003A536C /* AppDelegate.swift in Sources */,
+				B5394FDD1F583FAE0044B559 /* SelectDestinationViewController.swift in Sources */,
 				B5D711111F5706A400544ACA /* DataService.swift in Sources */,
+				B5394FE11F58712E0044B559 /* Location.swift in Sources */,
 				B5DF91491F575B7D00B8783A /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
