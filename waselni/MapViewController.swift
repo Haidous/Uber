@@ -18,6 +18,13 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     
+    
+    @IBOutlet weak var estimationView: UIVisualEffectView!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var estimatedTimeLabel: UILabel!
+    @IBOutlet weak var estimatedDistanceLabel: UILabel!
+    @IBOutlet weak var costOfRideLabel: UILabel!
+    
     @IBOutlet weak var selectView: UIVisualEffectView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,6 +40,11 @@ class MapViewController: UIViewController {
     var longitude:Double?
     var latitude:Double?
     
+    var destination:CLLocationCoordinate2D?
+    
+    var distanceText:String?
+    var timeText:String?
+    
     var placesDictionary = [String:[String]]()
     
     var placeIDArray = [String]()
@@ -42,6 +54,7 @@ class MapViewController: UIViewController {
     
     var likelihoodsNameArray = [String]()
     var likelihoodsAddressArray = [String]()
+    var likelihoodsCoordinatesArray = [CLLocationCoordinate2D]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +79,9 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        selectView.transform = CGAffineTransform(translationX: 0, y: -selectView.frame.height)
-        tableView.transform = CGAffineTransform(translationX: 0, y: tableView.frame.height)
+        toggleSelectionViews(toggle: false)
+        toggleEstimationView(toggle: false)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -77,188 +91,115 @@ class MapViewController: UIViewController {
             performSegue(withIdentifier: "toLogin", sender: nil)
             
         }
+        
     }
     
     func createBikeMarkers(){
     
-        let xCords = [41.993013, 41.986727, 41.994506, 41.987248]
-        let yCords = [-87.660381, -87.663229, -87.665317, -87.662155]
+        MapService.instance.createBikeMarkers(mapView: mapView)
         
-        for (x, y) in zip(xCords, yCords){
-        
-            let position = CLLocationCoordinate2D(latitude: x, longitude: y)
-            _ = BikeMarker(position: position, mapView: mapView)
-            
-        }
-    
     }
     
-    func placeAutocomplete(textField: UITextField) {
-        
-        let filter = GMSAutocompleteFilter()
-        filter.type = .noFilter
-        
-        placeIDArray.removeAll()
-        
-        let visibleRegion = mapView.projection.visibleRegion()
-        let bounds = GMSCoordinateBounds(coordinate: visibleRegion.farLeft, coordinate: visibleRegion.nearRight)
-        
-        placesClient.autocompleteQuery(textField.text!, bounds: bounds, filter: filter, callback: {(results, error) -> Void in
-            if let error = error {
-                print("Autocomplete error \(error)")
-                return
-            }
-            if let results = results {
-                for result in results {
+    func getPlaceInformation(textField:UITextField){
+    
+        MapService.instance.placeAutocomplete(mapView: mapView, textField: textField, onComplete: { (error, data) in
+            
+            if let placeIDArray = data{
+                
+                MapService.instance.getPlaceInformation(placeIDArray: placeIDArray as! [String], onComplete: {(error, data) in
                     
-                    self.placeIDArray.append(result.placeID!)
-
-                }
-                
-                if results.count == self.placeIDArray.count{
+                    if let placeInformationArray = data as? [Any]{
+                        
+                        self.placeNameArray = placeInformationArray[0] as! [String]
+                        self.placeAddressArray = placeInformationArray[1] as! [String]
+                        self.placeCoordinatesArray = placeInformationArray[2] as! [CLLocationCoordinate2D]
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.tableView.reloadData()
+                            
+                        }
+                        
+                    }
                     
-                   self.placeIDArray = removeDuplicates(source: self.placeIDArray)
-                
-                    self.getPlaceName(placeIDArray: self.placeIDArray)
-                
-                }
+                })
             }
         })
-        
-    }
-    
-    func getPlaceName(placeIDArray: [String]){
-        
-        self.placeNameArray.removeAll()
-        self.placeAddressArray.removeAll()
-        self.placeCoordinatesArray.removeAll()
-        
-        for placeID in placeIDArray{
-            
-            placesClient.lookUpPlaceID(placeID, callback: { (place, error) -> Void in
-                
-                if let error = error {
-                    print("lookup place id query error: \(error.localizedDescription)")
-                    return
-                }
-                
-                guard let place = place else {
-                    print("No place details for \(placeID)")
-                    return
-                }
-                
-                let nameAddressArray = [place.name, place.formattedAddress!]
-                
-                self.placesDictionary[placeID] = nameAddressArray            
-                self.placeNameArray.append(place.name)
-                self.placeAddressArray.append(place.formattedAddress!)
-                self.placeCoordinatesArray.append(place.coordinate)
-               
-            })
-        }
     }
     
     func getLikelihoodPlaces(){
         
-        placesClient.currentPlace(callback: { (placeLikelihoodList, error) -> Void in
-            if let error = error {
-                print("Pick Place error: \(error.localizedDescription)")
-                return
-            }
+        MapService.instance.getLikelihoodPlaces(onComplete: {(error, data) in
+        
+            if let likelihoodInformation = data as? [Any]{
             
-            if let placeLikelihoodList = placeLikelihoodList {
-                for likelihood in placeLikelihoodList.likelihoods {
-                    let place = likelihood.place
-                    self.likelihoodsNameArray.append(place.name)
-                    self.likelihoodsAddressArray.append(place.formattedAddress!)
-                    
-                }
-                
+                self.likelihoodsNameArray = likelihoodInformation[0] as! [String]
+                self.likelihoodsAddressArray = likelihoodInformation[1] as! [String]
+                self.likelihoodsCoordinatesArray = likelihoodInformation[2] as! [CLLocationCoordinate2D]
+            
                 DispatchQueue.main.async {
                     
-                   self.tableView.reloadData()
+                    self.tableView.reloadData()
                     
                 }
                 
             }
+        
         })
     }
     
-    func getPolylineRoute(from source: CLLocationCoordinate2D, to destination: CLLocationCoordinate2D){
+    func toggleSelectionViews(toggle: Bool){
+    
+        if toggle{
         
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        
-        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?origin=\(source.latitude),\(source.longitude)&destination=\(destination.latitude),\(destination.longitude)&sensor=true&mode=driving&key=AIzaSyCsLVTDsl-0ij-7pfF7VKDLgAebaYDQpu0")!
-        
-        let task = session.dataTask(with: url, completionHandler: {
-            (data, response, error) in
-            if error != nil {
-                print(error!.localizedDescription)
-                //self.activityIndicator.stopAnimating()
+            UIView.animate(withDuration: 0.5) {
+                self.selectView.transform = .identity
+                self.tableView.transform = .identity
             }
-            else {
-                do {
-                    if let json : [String:Any] = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]{
-                        
-                        print(json["routes"])
-                        guard let routes = json["routes"] as? NSArray else {
-                            DispatchQueue.main.async {
-                                //self.activityIndicator.stopAnimating()
-                            }
-                            return
-                        }
-                        
-                        if (routes.count > 0) {
-                            let overview_polyline = routes[0] as? NSDictionary
-                            let dictPolyline = overview_polyline?["overview_polyline"] as? NSDictionary
-                            
-                            let points = dictPolyline?.object(forKey: "points") as? String
-                            
-                            self.showPath(polyStr: points!)
-                            
-                            DispatchQueue.main.async {
-                                //self.activityIndicator.stopAnimating()
-                                
-                                let bounds = GMSCoordinateBounds(coordinate: source, coordinate: destination)
-                                let update = GMSCameraUpdate.fit(bounds, with: UIEdgeInsetsMake(170, 30, 30, 30))
-                                self.mapView!.moveCamera(update)
-                            }
-                        }
-                        else {
-                            DispatchQueue.main.async {
-                                //self.activityIndicator.stopAnimating()
-                            }
-                        }
-                    }
-                }
-                catch {
-                    print("error in JSONSerialization")
-                    DispatchQueue.main.async {
-                        //self.activityIndicator.stopAnimating()
-                    }
-                }
+            
+        }else{
+        
+            UIView.animate(withDuration: 0.5) {
+                
+                self.selectView.transform = CGAffineTransform(translationX: 0, y: -self.selectView.frame.height)
+                self.tableView.transform = CGAffineTransform(translationX: 0, y: self.tableView.frame.height)
+                
             }
-        })
-        task.resume()
+        
+        }
+    
     }
     
-    func showPath(polyStr: String){
-        let path = GMSPath(fromEncodedPath: polyStr)
-        let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 3.0
-        polyline.strokeColor = UIColor.black
-        polyline.map = mapView // Your map view
+    func toggleEstimationView(toggle: Bool){
+    
+    
+        if toggle{
+        
+            UIView.animate(withDuration: 0.5, animations: { 
+                
+                self.cancelButton.alpha = 1
+                self.estimationView.transform = .identity
+                
+            })
+        
+        }else{
+        
+            UIView.animate(withDuration: 0.5, animations: { 
+                
+                self.estimationView.transform = CGAffineTransform(translationX: 0, y: self.estimationView.frame.height)
+                self.cancelButton.alpha = 0
+
+                
+            })
+        
+        }
+    
     }
     
     @IBAction func textfieldTapped(_ sender: UITapGestureRecognizer) {
         
-        UIView.animate(withDuration: 0.5) {
-            self.selectView.transform = .identity
-            self.tableView.transform = .identity
-        }
-        
-        visualEffectView.isHidden = true
+        toggleSelectionViews(toggle: true)
+        visualEffectView.alpha = 0
         
     }
 
@@ -277,6 +218,38 @@ class MapViewController: UIViewController {
         
     }
     
+    @IBAction func waselniButtonClicked(_ sender: Any) {
+        
+        let currentLocation = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+        self.cancelButton.alpha = 0
+        
+        DataService.instance.uploadCUDestinationCoords(latitude: (destination?.latitude)!, longitude: (destination?.longitude)!)
+        DataService.instance.uploadCDDestinationCoords(latitude: latitude!, longitude: longitude!)
+        DataService.instance.getActiveDriverCoords { (error, data) in
+            
+            let activeDriverCoords = data as! CLLocationCoordinate2D
+            
+            MapService.instance.getDirections(mapView: self.mapView, origin: currentLocation, destination: activeDriverCoords, onComplete: nil)
+            
+        }
+        createBikeMarkers()
+    }
+    
+    @IBAction func cancelButtonClicked(_ sender: Any) {
+        
+        toggleEstimationView(toggle: false)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.visualEffectView.alpha = 1
+        }
+        
+        self.fromTextField.text = ""
+        self.toTextField.text = ""
+        self.tableView.reloadData()
+        mapView.clear()
+        createBikeMarkers()
+        
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
@@ -301,6 +274,8 @@ extension MapViewController: CLLocationManagerDelegate, UITableViewDelegate, UIT
             
             self.longitude = location.coordinate.longitude
             self.latitude = location.coordinate.latitude
+            
+            DataService.instance.uploadCUCurrentLocationCoords(latitude: self.latitude!, longitude: self.longitude!)
             
             locationManager.stopUpdatingLocation()
         }
@@ -329,12 +304,17 @@ extension MapViewController: CLLocationManagerDelegate, UITableViewDelegate, UIT
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if placeNameArray.isEmpty{
+            
             return likelihoodsNameArray.count
+            
         }else{
             
             return placeNameArray.count
@@ -350,26 +330,84 @@ extension MapViewController: CLLocationManagerDelegate, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        mapView.camera = GMSCameraPosition(target: placeCoordinatesArray[indexPath.row], zoom: 15, bearing: 0, viewingAngle: 0)
-        
         let myCurrentLocation = CLLocationCoordinate2D(latitude: self.latitude!, longitude: self.longitude!)
+    
         
-        let marker = GMSMarker()
-        marker.position = placeCoordinatesArray[indexPath.row]
-        marker.title = placeNameArray[indexPath.row]
-        marker.map = mapView
+        if fromTextField.text == "" && toTextField.text == ""{
         
-        selectView.transform = CGAffineTransform(translationX: 0, y: -selectView.frame.height)
-        tableView.transform = CGAffineTransform(translationX: 0, y: tableView.frame.height)
+            destination = likelihoodsCoordinatesArray[indexPath.row]
+            
+            mapView.camera = GMSCameraPosition(target: destination!, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+            let marker = GMSMarker()
+            mapView.clear()
+            marker.position = destination!
+            marker.title = likelihoodsNameArray[indexPath.row]
+            marker.map = mapView
+            
+        }else{
+            
+            destination = placeCoordinatesArray[indexPath.row]
+            
+            mapView.camera = GMSCameraPosition(target: destination!, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+            let marker = GMSMarker()
+            mapView.clear()
+            marker.position = destination!
+            marker.title = placeNameArray[indexPath.row]
+            marker.map = mapView
         
-        getPolylineRoute(from: myCurrentLocation, to: placeCoordinatesArray[indexPath.row])
+            self.placeAddressArray.removeAll()
+            self.placeNameArray.removeAll()
+            self.placeIDArray.removeAll()
+
+            tableView.reloadData()
+            
+        }
+
+        toggleSelectionViews(toggle: false)
         
+        toggleEstimationView(toggle: true)
+        
+        self.fromTextField.resignFirstResponder()
+        self.toTextField.resignFirstResponder()
+        
+        
+        MapService.instance.getDirections(mapView: mapView, origin: myCurrentLocation, destination: destination!, onComplete: nil)
+        createBikeMarkers()
+        MapService.instance.estimateDistanceAndTime(origin: myCurrentLocation, destination: destination!, onComplete: {(error, data) in
+        
+            let estimation = data as! [Any]
+            
+            let distanceText = estimation[0]
+            let timeText = estimation[1]
+            
+            self.distanceText = String(describing: distanceText)
+            self.timeText = String(describing: timeText)
+            
+            self.estimatedDistanceLabel.text = "\(distanceText)"
+            self.estimatedTimeLabel.text = "E.T.A \(timeText)"
+            self.cancelButton.alpha = 1
+        
+        })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
         fromTextField.resignFirstResponder()
         toTextField.resignFirstResponder()
+    
+        let contentYoffset = scrollView.contentOffset.y
+        if contentYoffset < -100.0{
+        
+            toggleSelectionViews(toggle: false)
+            UIView.animate(withDuration: 0.5, animations: {
+                
+                self.visualEffectView.alpha = 1
+                
+            })
+        
+        }
         
     }
     
@@ -390,10 +428,13 @@ extension MapViewController: CLLocationManagerDelegate, UITableViewDelegate, UIT
     func textFieldDidChange(_ textField: UITextField) {
         
         if textField.text != nil{
-            placeAutocomplete(textField: textField)
-            tableView.reloadData()
+            
+            getPlaceInformation(textField: textField)
+            
         }
     }
+    
+    
 }
 
 func removeDuplicates<S : Sequence, T : Hashable>(source: S) -> [T] where S.Iterator.Element == T {
