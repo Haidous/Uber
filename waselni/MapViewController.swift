@@ -55,6 +55,8 @@ class MapViewController: UIViewController {
     var likelihoodsNameArray = [String]()
     var likelihoodsAddressArray = [String]()
     var likelihoodsCoordinatesArray = [CLLocationCoordinate2D]()
+    
+    var timeValuesArray = [Int]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -227,11 +229,14 @@ class MapViewController: UIViewController {
         DataService.instance.uploadCDDestinationCoords(latitude: latitude!, longitude: longitude!)
         DataService.instance.getActiveDriverCoords { (error, data) in
             
-            let activeDriverCoords = data as! CLLocationCoordinate2D
+            let activeDriverCurrentLocation = data as! CLLocationCoordinate2D
             
-            MapService.instance.getDirections(mapView: self.mapView, origin: currentLocation, destination: activeDriverCoords, onComplete: nil)
+            MapService.instance.getDirections(mapView: self.mapView, origin: currentLocation, destination: activeDriverCurrentLocation, onComplete: nil)
+            
             
         }
+        
+        
         createBikeMarkers()
     }
     

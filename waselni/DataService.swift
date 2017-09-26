@@ -129,6 +129,7 @@ class DataService{
                         
                     let bikeCoordinates = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                     
+                    
                     onComplete!(nil, bikeCoordinates)
                     
                     

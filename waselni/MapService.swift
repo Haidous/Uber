@@ -78,6 +78,19 @@ class MapService{
         
     }
     
+    func getTimeValue(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D, onComplete: Completion?){
+        
+        estimateDistanceAndTime(origin: origin, destination: destination) { (error, data) in
+            
+            let estimation = data as! [Any]
+            let timeValue = estimation[3]
+            
+            onComplete!(nil, timeValue)
+            
+        }
+    
+    }
+    
     func getPlaceInformation(placeIDArray:[String], onComplete:Completion?){
         
         var placeNameArray = [String]()
@@ -186,8 +199,10 @@ class MapService{
             let distanceText = distanceDict["text"]
             let timeDict = element["duration"]
             let timeText = timeDict["text"]
+            let distanceValue = distanceDict["value"]
+            let timeValue = timeDict["value"]
             
-            let estimation = [distanceText, timeText] as [Any]
+            let estimation = [distanceText, timeText, distanceValue, timeValue] as [Any]
             
             onComplete!(nil, estimation)
     
