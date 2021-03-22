@@ -1,2 +1,3 @@
-# Waselni - Uber for bikes
- ## Not done just yet.
+# waselni
+##  uber but for motorbikes built with Swift & Firebase
+## to be completed some day
