@@ -1,3 +1,2 @@
 # waselni
-##  uber but for motorbikes built with Swift & Firebase
-## to be completed some day
+##  uber but for motorbikes built with Swift & Firebase <br /> to be completed some day
